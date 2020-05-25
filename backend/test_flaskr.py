@@ -135,8 +135,8 @@ class TriviaTestCase(unittest.TestCase):
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertEqual(len(data['question']), 1)
-        self.assertEqual(len(data['category_id']), 1)
+        self.assertTrue(data['category_id'], 1)
+        self.assertTrue(len(data['question']))
         self.assertTrue(len(data['previous_questions']))
     
     def test_404_quiz_question_invalid_call(self):
